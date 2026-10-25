@@ -99,7 +99,8 @@ export const portfolio = {
   experience: [
     {
       title: 'Discord Support Assistant',
-      organization: 'Discord community',
+      organization: 'Dreamworld Silkroad Discord Community',
+      url: 'https://discord.gg/dreamworldsilkroad',
       detail: 'Helped community members with Level 1 troubleshooting.',
     },
     {

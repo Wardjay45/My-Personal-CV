@@ -180,6 +180,8 @@ h1 em, .contact-section h2 em { color: var(--teal); font-family: var(--serif); f
 .highlight-item b { font-size: 11px; font-weight: 550; }
 .highlight-item p { margin: 0; color: var(--muted); font-size: 10px; }
 .highlight-copy .highlight-detail { color: #a0ada7; }
+.experience-link { display: inline-flex; align-items: center; gap: 4px; color: var(--teal); }
+.experience-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 .highlight-link { grid-column: 2; display: inline-flex; align-items: center; gap: 5px; margin-top: 4px; color: var(--teal); font-size: 9px; }
 .highlight-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
