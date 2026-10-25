@@ -27,7 +27,8 @@ export const portfolio = {
   ],
   skills: {
     'Frontend & Mobile': ['React', 'React Native', 'HTML', 'CSS', 'Tailwind CSS'],
-    'Backend & Data': ['Supabase'],
+    'Backend & Data': ['Supabase', 'PostgreSQL', 'Firebase'],
+    'Local Development': ['XAMPP'],
     'Computer Vision': ['Computer Vision'],
   },
   projects: [
