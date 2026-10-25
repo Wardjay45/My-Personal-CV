@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import {
-  ArrowDown, ArrowRight, ArrowUpRight, Award, BriefcaseBusiness, Code2,
-  Github, GraduationCap, Linkedin, Mail, MapPin, Menu, Moon, Sparkles, Sun, X,
+  ArrowDown, ArrowRight, ArrowUpRight, Award, BriefcaseBusiness, Check, Code2,
+  Copy, Facebook, Github, GraduationCap, Linkedin, Mail, MapPin, Menu, MessageCircle, Moon, Phone, Sparkles, Sun, X,
 } from 'lucide-react'
 import { portfolio } from './data/portfolio.js'
 
@@ -74,6 +74,7 @@ function Hero({ theme }) {
         </div>
         <div className="hero-meta">
           {portfolio.location && <span><MapPin size={14} />{portfolio.location}</span>}
+          {portfolio.email && <a href={`mailto:${portfolio.email}`}><Mail size={14} />{portfolio.email}</a>}
           {portfolio.github && <a href={portfolio.github} target="_blank" rel="noreferrer"><Github size={15} />GitHub</a>}
           {portfolio.linkedin && <a href={portfolio.linkedin} target="_blank" rel="noreferrer"><Linkedin size={15} />LinkedIn</a>}
         </div>
@@ -118,10 +119,35 @@ function Skills() {
   </section>
 }
 
+function ProjectCard({ project, index }) {
+  const [activeImage, setActiveImage] = useState(0)
+  const image = project.images?.[activeImage]
+  return <Reveal delay={index * 0.07}>
+    <article className="project-card">
+      <div className="project-visual">
+        {image && <img src={image.src} alt={image.alt} loading="lazy" />}
+      </div>
+      {image?.caption && <p className="project-image-caption">{image.caption}</p>}
+      {project.images?.length > 1 && <div className="project-gallery" aria-label={`${project.title} images`}>
+        {project.images.map((item, imageIndex) => <button key={item.src} type="button" className={imageIndex === activeImage ? 'is-active' : ''} aria-label={`Show image: ${item.caption}`} aria-pressed={imageIndex === activeImage} onClick={() => setActiveImage(imageIndex)}>
+          <img src={item.src} alt="" loading="lazy" />
+        </button>)}
+      </div>}
+      <div className="project-body">
+        <div className="project-meta"><span>{project.category}</span>{project.year && <span>{project.year}</span>}</div>
+        <h3>{project.title}</h3><p>{project.description}</p>
+        {project.note && <p className="project-note">{project.note}</p>}
+        <div className="project-tags">{project.technologies?.map((tech) => <span key={tech}>{tech}</span>)}</div>
+        {(project.github || project.demo) && <div className="project-links">{project.github && <a href={project.github} target="_blank" rel="noreferrer">Repository <ArrowUpRight size={15} /></a>}{project.demo && <a href={project.demo} target="_blank" rel="noreferrer">Live demo <ArrowUpRight size={15} /></a>}</div>}
+      </div>
+    </article>
+  </Reveal>
+}
+
 function Projects() {
   return <section className="content-section section-wrap section-muted" id="projects">
     <Reveal><SectionHeading number="04" label="SELECTED WORK" title="Projects with purpose." summary="Academic and personal work that shows how I think, learn, and solve problems." /></Reveal>
-    {portfolio.projects.length ? <div className="project-grid">{portfolio.projects.map((project, i) => <Reveal key={project.title} delay={i * 0.07}><article className="project-card"><div className="project-visual">{project.image ? <img src={project.image} alt={`${project.title} preview`} /> : <div className="project-visual-placeholder"><span>PROJECT / {String(i + 1).padStart(2, '0')}</span><Code2 size={34} /></div>}</div><div className="project-body"><div className="project-meta"><span>{project.status}</span><span>{project.year}</span></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-tags">{project.technologies?.map((tech) => <span key={tech}>{tech}</span>)}</div><div className="project-links">{project.github && <a href={project.github} target="_blank" rel="noreferrer">Repository <ArrowUpRight size={15} /></a>}{project.demo && <a href={project.demo} target="_blank" rel="noreferrer">Live demo <ArrowUpRight size={15} /></a>}</div></div></article></Reveal>)}</div> : <Reveal><div className="projects-empty"><div className="empty-illustration"><Code2 size={28} /></div><div><span className="mini-label">THE WORK IS THE STORY</span><h3>Projects will take the spotlight here.</h3><p>Add completed or ongoing projects with verified descriptions, technologies, and working links.</p></div></div></Reveal>}
+    {portfolio.projects.length ? <div className="project-grid">{portfolio.projects.map((project, index) => <ProjectCard key={project.title} project={project} index={index} />)}</div> : <Reveal><div className="projects-empty"><div className="empty-illustration"><Code2 size={28} /></div><div><span className="mini-label">THE WORK IS THE STORY</span><h3>Projects will take the spotlight here.</h3><p>Add completed or ongoing projects with verified descriptions, technologies, and working links.</p></div></div></Reveal>}
   </section>
 }
 
@@ -139,11 +165,24 @@ function Highlights() {
 
 function Contact() {
   const hasEmail = Boolean(portfolio.email)
+  const [copied, setCopied] = useState(false)
+  async function copyDiscord() {
+    try {
+      await navigator.clipboard.writeText(portfolio.discord)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1800)
+    } catch {
+      setCopied(false)
+    }
+  }
   return <section className="contact-section" id="contact"><div className="section-wrap contact-inner">
     <Reveal><span className="section-kicker"><span>06</span><span>CONTACT</span></span><h2>Good things start<br /><em>with a conversation.</em></h2><p>Have an opportunity, an idea, or a question? I’d be glad to hear from you.</p><a className="button button-primary contact-button" href={hasEmail ? `mailto:${portfolio.email}` : '#contact-details'}>{hasEmail ? 'Say hello' : 'Add your contact details'} <ArrowUpRight size={16} /></a></Reveal>
     <Reveal className="contact-details" delay={0.12}>
       <span className="mini-label">FIND ME HERE</span>
       {hasEmail ? <a href={`mailto:${portfolio.email}`}><Mail size={17} /><span>{portfolio.email}</span><ArrowUpRight size={15} /></a> : <div className="contact-detail-placeholder" id="contact-details"><Mail size={17} /><span>Email address to be added</span></div>}
+      {portfolio.phone && <a href={`tel:${portfolio.phone.replace(/\s/g, '')}`}><Phone size={17} /><span>{portfolio.phone}</span><ArrowUpRight size={15} /></a>}
+      {portfolio.facebook && <a href={portfolio.facebook} target="_blank" rel="noreferrer"><Facebook size={17} /><span>Facebook profile</span><ArrowUpRight size={15} /></a>}
+      {portfolio.discord && <button className="contact-copy" type="button" onClick={copyDiscord} aria-live="polite"><MessageCircle size={17} /><span>Discord · {portfolio.discord}</span><span className="copy-label">{copied ? <><Check size={14} /> Copied</> : <><Copy size={14} /> Copy</>}</span></button>}
       {portfolio.github && <a href={portfolio.github} target="_blank" rel="noreferrer"><Github size={17} /><span>GitHub</span><ArrowUpRight size={15} /></a>}
       {portfolio.linkedin && <a href={portfolio.linkedin} target="_blank" rel="noreferrer"><Linkedin size={17} /><span>LinkedIn</span><ArrowUpRight size={15} /></a>}
       {portfolio.location && <div className="contact-location"><MapPin size={16} />{portfolio.location}</div>}

@@ -2,7 +2,7 @@
 
 A responsive, single-page portfolio website for an Information Technology student. The design highlights a concise profile, education, skills, projects, experience, achievements, and contact information.
 
-> **Draft:** Replace the remaining sample copy and empty profile fields in `src/data/portfolio.js` before sharing this portfolio publicly. The supplied dark-mode and light-mode portraits are stored in `public/`; add project previews there when available.
+> **Draft:** Replace the remaining sample copy and empty profile fields in `src/data/portfolio.js` before sharing this portfolio publicly. The supplied dark-mode and light-mode portraits and project previews are optimized WebP assets under `public/`.
 
 ## Technologies
 
@@ -20,6 +20,7 @@ A responsive, single-page portfolio website for an Information Technology studen
 - Scroll reveal and interaction motion with reduced-motion support
 - Project and social links render only when supplied
 - Contact uses a `mailto:` link when an email address is provided
+- Featured work includes Drowning Detection, DermaLink, and EcoSort, with project image galleries
 
 ## Run locally
 
