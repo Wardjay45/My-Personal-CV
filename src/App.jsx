@@ -64,7 +64,7 @@ function Hero({ theme }) {
   return <section className="hero section-wrap" id="home">
     <div className="hero-grid">
       <motion.div className="hero-copy" initial={reduced ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduced ? 0 : 0.7 }}>
-        <div className="availability"><span className="availability-dot" /> STUDENT PORTFOLIO · PROFILE DRAFT</div>
+        <div className="availability"><span className="availability-dot" /> FOURTH-YEAR BSIT · AI ENTHUSIAST</div>
         <p className="hero-eyebrow">{portfolio.eyebrow}</p>
         <h1>Hi, I’m <span>{portfolio.name}</span><br /><em>building what’s next.</em></h1>
         <p className="hero-description">{portfolio.introduction}</p>
@@ -124,7 +124,7 @@ function ProjectCard({ project, index }) {
   const image = project.images?.[activeImage]
   return <Reveal delay={index * 0.07}>
     <article className={`project-card ${project.featured ? 'project-card-featured' : ''}`}>
-      <div className="project-visual">
+      <div className="project-visual" style={image ? { '--project-image': `url("${image.src}")` } : undefined}>
         {image && <img src={image.src} alt={image.alt} loading="lazy" />}
       </div>
       {image?.caption && <p className="project-image-caption">{image.caption}</p>}

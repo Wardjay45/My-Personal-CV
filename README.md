@@ -2,7 +2,7 @@
 
 A responsive, single-page portfolio website for an Information Technology student. The design highlights a concise profile, education, skills, projects, experience, achievements, and contact information.
 
-> **Draft:** Replace the remaining sample copy and empty profile fields in `src/data/portfolio.js` before sharing this portfolio publicly. The supplied dark-mode and light-mode portraits and project previews are optimized WebP assets under `public/`.
+The profile, education, skills, experience, certificate, and current project details are maintained in `src/data/portfolio.js`. The supplied dark-mode and light-mode portraits and project previews are optimized WebP assets under `public/`.
 
 ## Technologies
 
@@ -45,18 +45,18 @@ Update `src/data/portfolio.js` with facts and working URLs you have verified. Ad
 
 ## Links
 
-- GitHub repository: **Not connected yet**
+- Portfolio source repository: **Not connected yet**
 - Live Vercel website: **Not deployed yet**
 - Student name: Jeward Mencede
-- Screenshots: **To be added with the project details**
+- Project screenshots: included under `public/projects/`
 
-## Before publishing
+## Publishing
 
-- Replace the draft introduction, career objective, education, skills, and contact fields with accurate public information.
-- Add only completed or clearly labeled ongoing projects, with checked repository and demo URLs.
-- Add a profile photo and project screenshots you have permission to publish.
-- Connect the GitHub and Vercel accounts, create the `personal-cv` repository, and deploy the `main` branch.
-- Replace the two link placeholders above with the verified repository and public deployment URLs.
+- The current profile content and included media are ready for a Vercel production build.
+- Build command: `npm run build`
+- Output directory: `dist`
+- Create or connect the portfolio source repository in Vercel, then deploy the production branch.
+- Update the source repository and live website links above after publishing.
 
 ## Development history
 

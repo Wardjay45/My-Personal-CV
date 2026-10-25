@@ -1,4 +1,3 @@
-// Replace these sample fields with verified information before publishing.
 export const portfolio = {
   name: 'Jeward Mencede',
   shortName: 'JM',
@@ -19,7 +18,7 @@ export const portfolio = {
     dark: '/portrait-dark.webp',
     light: '/portrait-light.webp',
   },
-  about: 'I’m currently in my fourth year of the BSIT program at Davao Del Norte State College. I’ll add more about my background and interests here.',
+  about: 'I’m a fourth-year BSIT student at Davao Del Norte State College. I enjoy learning new technologies, especially AI, and exploring how it can solve practical problems and make digital experiences more accessible.',
   education: [
     {
       school: 'Davao Del Norte State College',
