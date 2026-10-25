@@ -123,7 +123,7 @@ function ProjectCard({ project, index }) {
   const [activeImage, setActiveImage] = useState(0)
   const image = project.images?.[activeImage]
   return <Reveal delay={index * 0.07}>
-    <article className="project-card">
+    <article className={`project-card ${project.featured ? 'project-card-featured' : ''}`}>
       <div className="project-visual">
         {image && <img src={image.src} alt={image.alt} loading="lazy" />}
       </div>
@@ -135,7 +135,9 @@ function ProjectCard({ project, index }) {
       </div>}
       <div className="project-body">
         <div className="project-meta"><span>{project.category}</span>{project.year && <span>{project.year}</span>}</div>
-        <h3>{project.title}</h3><p>{project.description}</p>
+        <h3>{project.title}</h3>
+        {project.fullTitle && <p className="project-full-title">{project.fullTitle}</p>}
+        <p>{project.description}</p>
         {project.note && <p className="project-note">{project.note}</p>}
         <div className="project-tags">{project.technologies?.map((tech) => <span key={tech}>{tech}</span>)}</div>
         {(project.github || project.demo) && <div className="project-links">{project.github && <a href={project.github} target="_blank" rel="noreferrer">Repository <ArrowUpRight size={15} /></a>}{project.demo && <a href={project.demo} target="_blank" rel="noreferrer">Live demo <ArrowUpRight size={15} /></a>}</div>}

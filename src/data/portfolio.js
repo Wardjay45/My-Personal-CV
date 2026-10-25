@@ -46,6 +46,27 @@ export const portfolio = {
   },
   projects: [
     {
+      title: 'Campus Lost & Found System',
+      fullTitle: 'Computer Vision-Based Campus Lost and Found Management System with Automated Accessibility for Users with Impairments',
+      featured: true,
+      category: 'CAPSTONE · IN PROGRESS',
+      description: 'A campus lost-and-found management capstone centered on computer vision and automated accessibility for users with impairments.',
+      technologies: ['Computer Vision', 'Accessibility', 'Campus Management'],
+      github: 'https://github.com/Wardjay45/Lost-and-found-system',
+      images: [
+        {
+          src: '/projects/campus-lost-found-home.webp',
+          alt: 'Desktop home and admin sign-in screen for the campus lost-and-found system',
+          caption: 'Desktop experience',
+        },
+        {
+          src: '/projects/campus-lost-found-mobile.webp',
+          alt: 'Mobile sign-in screen for the campus lost-and-found system',
+          caption: 'Mobile experience',
+        },
+      ],
+    },
+    {
       title: 'Drowning Detection',
       category: 'COMPUTER VISION',
       description: 'A computer vision project that analyzes pool-area footage to identify possible drowning-related activity.',
