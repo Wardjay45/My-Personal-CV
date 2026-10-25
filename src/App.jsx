@@ -42,13 +42,14 @@ function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
   return <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
+    <a className="skip-link" href="#main-content">Skip to content</a>
     <nav className="nav-shell" aria-label="Main navigation">
       <a className="brand" href="#home" aria-label="Go to home"><span className="brand-mark">{portfolio.shortName}</span><span>{portfolio.name}</span></a>
-      <div className={`nav-links ${open ? 'is-open' : ''}`}>
+      <div className={`nav-links ${open ? 'is-open' : ''}`} id="primary-navigation">
         {navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}
         <a className="nav-contact" href="#contact" onClick={() => setOpen(false)}>Let’s talk <ArrowUpRight size={14} /></a>
       </div>
-      <button className="menu-toggle" aria-label={open ? 'Close menu' : 'Open menu'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
+      <button className="menu-toggle" aria-label={open ? 'Close menu' : 'Open menu'} aria-controls="primary-navigation" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
     </nav>
   </header>
 }
@@ -156,5 +157,5 @@ function Footer() {
 }
 
 export default function App() {
-  return <><Navbar /><main><Hero /><div className="hero-divider" /><About /><Education /><Skills /><Projects /><Highlights /><Contact /></main><Footer /></>
+  return <><Navbar /><main id="main-content"><Hero /><div className="hero-divider" /><About /><Education /><Skills /><Projects /><Highlights /><Contact /></main><Footer /></>
 }

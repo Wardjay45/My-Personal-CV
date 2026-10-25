@@ -25,11 +25,14 @@ body::before { content: ""; position: fixed; z-index: -1; inset: 0; pointer-even
 a { color: inherit; text-decoration: none; }
 button { color: inherit; font: inherit; }
 img { display: block; max-width: 100%; }
+ :focus-visible { outline: 2px solid var(--teal); outline-offset: 4px; }
 ::selection { color: #071411; background: var(--teal); }
 .section-wrap { width: min(1120px, calc(100% - 64px)); margin-inline: auto; }
 
 .site-header { position: sticky; top: 0; z-index: 20; height: 78px; border-bottom: 1px solid transparent; transition: background .25s ease, border-color .25s ease, height .25s ease; }
 .site-header.is-scrolled { height: 68px; background: rgba(11, 17, 21, .88); border-color: var(--line); backdrop-filter: blur(18px); }
+.skip-link { position: fixed; z-index: 50; top: 8px; left: 8px; padding: 10px 14px; border-radius: 6px; color: #071411; background: var(--teal); transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
 .nav-shell { height: 100%; width: min(1280px, calc(100% - 64px)); margin: auto; display: flex; align-items: center; justify-content: space-between; }
 .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 13px; font-weight: 650; letter-spacing: -.025em; }
 .brand-mark { width: 31px; height: 31px; display: grid; place-items: center; border: 1px solid rgba(134, 216, 193, .4); border-radius: 9px; color: var(--teal); font-size: 10px; letter-spacing: .06em; }
