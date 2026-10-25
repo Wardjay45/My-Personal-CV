@@ -47,6 +47,14 @@ Update `src/data/portfolio.js` with facts and working URLs you have verified. Ad
 - Live Vercel website: **Not deployed yet**
 - Screenshots: **To be added after profile content and assets are supplied**
 
+## Before publishing
+
+- Replace the draft introduction, career objective, education, skills, and contact fields with accurate public information.
+- Add only completed or clearly labeled ongoing projects, with checked repository and demo URLs.
+- Add a profile photo and project screenshots you have permission to publish.
+- Connect the GitHub and Vercel accounts, create the `personal-cv` repository, and deploy the `main` branch.
+- Replace the two link placeholders above with the verified repository and public deployment URLs.
+
 ## Development history
 
 Create commits for real completed stages as development progresses; do not fabricate earlier work or timestamps.
