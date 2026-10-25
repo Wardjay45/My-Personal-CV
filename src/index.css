@@ -177,6 +177,8 @@ h1 em, .contact-section h2 em { color: var(--teal); font-family: var(--serif); f
 .highlight-item > span { color: var(--teal); font-size: 9px; }
 .highlight-item b { font-size: 11px; font-weight: 550; }
 .highlight-item p { grid-column: 2; margin: 0; color: var(--muted); font-size: 10px; }
+.highlight-link { grid-column: 2; display: inline-flex; align-items: center; gap: 5px; margin-top: 4px; color: var(--teal); font-size: 9px; }
+.highlight-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .contact-section { position: relative; overflow: hidden; border-top: 1px solid var(--line); background: radial-gradient(ellipse at 23% 80%, rgba(36, 78, 66, .16), transparent 43%), #0d1519; }
 .contact-inner { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 80px; padding-block: 94px; }

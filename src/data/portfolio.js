@@ -25,7 +25,11 @@ export const portfolio = {
       period: '4th Year · Current',
     },
   ],
-  skills: {},
+  skills: {
+    'Frontend & Mobile': ['React', 'React Native', 'HTML', 'CSS', 'Tailwind CSS'],
+    'Backend & Data': ['Supabase'],
+    'Computer Vision': ['Computer Vision'],
+  },
   projects: [
     {
       title: 'Drowning Detection',
@@ -84,6 +88,13 @@ export const portfolio = {
       ],
     },
   ],
-  achievements: [],
+  achievements: [
+    {
+      title: 'CCNA: Switching, Routing, and Wireless Essentials',
+      year: '03 Dec 2025',
+      organization: 'Davao Del Norte State College · Cisco Networking Academy',
+      href: '/certificates/ccna-switching-routing-wireless-essentials.pdf',
+    },
+  ],
   experience: [],
 }

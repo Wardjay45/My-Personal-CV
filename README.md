@@ -21,6 +21,7 @@ A responsive, single-page portfolio website for an Information Technology studen
 - Project and social links render only when supplied
 - Contact uses a `mailto:` link when an email address is provided
 - Featured work includes Drowning Detection, DermaLink, and EcoSort, with project image galleries
+- Skills and the Cisco Networking Academy completion certificate are managed in the portfolio data file
 
 ## Run locally
 
