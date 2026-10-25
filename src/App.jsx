@@ -98,7 +98,7 @@ function About() {
     <Reveal><SectionHeading number="01" label="A LITTLE ABOUT ME" title="Thoughtful work,\nsteady growth." summary="A quick introduction to the person behind the projects." /></Reveal>
     <div className="about-grid">
       <Reveal className="about-main"><span className="large-quote">“</span><p className="about-copy">{portfolio.about}</p><div className="objective-block"><span className="mini-label">CAREER OBJECTIVE</span><p>{portfolio.objective}</p></div></Reveal>
-      <Reveal className="about-side" delay={0.12}><div className="about-card"><span className="card-icon"><GraduationCap size={20} /></span><span className="mini-label">CURRENT CHAPTER</span><h3>{portfolio.title}</h3><p>Bachelor of Science in Information Technology · Davao Del Norte State College.</p></div><div className="about-card"><span className="card-icon"><Sparkles size={20} /></span><span className="mini-label">WHAT DRIVES ME</span><h3>Interests & goals</h3><p>More about my interests and professional goals will be added here.</p></div></Reveal>
+      <Reveal className="about-side" delay={0.12}><div className="about-card"><span className="card-icon"><GraduationCap size={20} /></span><span className="mini-label">CURRENT CHAPTER</span><h3>{portfolio.title}</h3><p>Bachelor of Science in Information Technology · Davao Del Norte State College.</p></div><div className="about-card"><span className="card-icon"><Sparkles size={20} /></span><span className="mini-label">WHAT DRIVES ME</span><h3>{portfolio.driversTitle}</h3><p>{portfolio.drives}</p></div></Reveal>
     </div>
   </section>
 }

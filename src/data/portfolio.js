@@ -5,7 +5,9 @@ export const portfolio = {
   title: '4th-year BSIT Student',
   eyebrow: 'BSIT · 4TH YEAR',
   introduction: 'I’m Jeward Mencede, a fourth-year Bachelor of Science in Information Technology student at Davao Del Norte State College.',
-  objective: 'Add a concise career objective that reflects the opportunities you are pursuing.',
+  objective: 'To keep growing as an IT professional by taking projects from idea to completion, learning from challenges, and applying emerging technologies to build useful solutions.',
+  driversTitle: 'AI enthusiast & creative coder',
+  drives: 'I enjoy learning new technologies, especially AI, and exploring how they can solve real problems. I’m excited to keep experimenting, building, and applying what I learn to projects that can make a positive difference.',
   location: '',
   email: 'Jewardmencede@gmail.com',
   phone: '09455019544',
@@ -24,6 +26,16 @@ export const portfolio = {
       url: 'https://www.facebook.com/officialdnsc',
       program: 'Bachelor of Science in Information Technology',
       period: '4th Year · Current',
+    },
+    {
+      school: 'Tubod National School',
+      program: 'High School',
+      period: 'High School',
+    },
+    {
+      school: 'Don Manuel A Javellana Memorial School',
+      program: 'Elementary Education',
+      period: 'Elementary',
     },
   ],
   skills: {
