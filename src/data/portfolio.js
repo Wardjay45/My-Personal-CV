@@ -21,6 +21,7 @@ export const portfolio = {
   education: [
     {
       school: 'Davao Del Norte State College',
+      url: 'https://www.facebook.com/officialdnsc',
       program: 'Bachelor of Science in Information Technology',
       period: '4th Year · Current',
     },

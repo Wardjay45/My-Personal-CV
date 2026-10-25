@@ -107,7 +107,7 @@ function Education() {
   const entries = portfolio.education
   return <section className="content-section section-wrap section-muted" id="education">
     <Reveal><SectionHeading number="02" label="EDUCATION" title="The foundation." summary="The learning experiences shaping my perspective." /></Reveal>
-    {entries.length ? <div className="timeline">{entries.map((item, i) => <Reveal key={`${item.school}-${i}`}><article className="timeline-item"><div className="timeline-dot" /><div className="timeline-copy"><span className="mini-label">{item.period}</span><h3>{item.program}</h3><p>{item.school}</p>{item.detail && <p className="muted-copy">{item.detail}</p>}</div><GraduationCap className="timeline-icon" size={22} /></article></Reveal>)}</div> : <Reveal><EmptyNote>Education details will appear here once added.</EmptyNote></Reveal>}
+    {entries.length ? <div className="timeline">{entries.map((item, i) => <Reveal key={`${item.school}-${i}`}><article className="timeline-item"><div className="timeline-dot" /><div className="timeline-copy"><span className="mini-label">{item.period}</span><h3>{item.program}</h3><p>{item.url ? <a className="timeline-school-link" href={item.url} target="_blank" rel="noreferrer">{item.school} <ArrowUpRight size={13} /></a> : item.school}</p>{item.detail && <p className="muted-copy">{item.detail}</p>}</div><GraduationCap className="timeline-icon" size={22} /></article></Reveal>)}</div> : <Reveal><EmptyNote>Education details will appear here once added.</EmptyNote></Reveal>}
   </section>
 }
 
