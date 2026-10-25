@@ -96,5 +96,16 @@ export const portfolio = {
       href: '/certificates/ccna-switching-routing-wireless-essentials.pdf',
     },
   ],
-  experience: [],
+  experience: [
+    {
+      title: 'Discord Support Assistant',
+      organization: 'Discord community',
+      detail: 'Helped community members with Level 1 troubleshooting.',
+    },
+    {
+      title: 'Social Media Marketer',
+      period: '2018',
+      organization: 'Fake Feelings',
+    },
+  ],
 }

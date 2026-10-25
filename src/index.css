@@ -175,8 +175,11 @@ h1 em, .contact-section h2 em { color: var(--teal); font-family: var(--serif); f
 .accent-panel { background: linear-gradient(140deg, rgba(40,83,69,.19), rgba(255,255,255,.008)); }
 .highlight-item { display: grid; grid-template-columns: 75px 1fr; gap: 5px 12px; padding: 12px 0; border-top: 1px solid var(--line); }
 .highlight-item > span { color: var(--teal); font-size: 9px; }
+.highlight-copy { grid-column: 2; display: grid; gap: 5px; }
+.highlight-item:not(.has-period) .highlight-copy { grid-column: 1 / -1; }
 .highlight-item b { font-size: 11px; font-weight: 550; }
-.highlight-item p { grid-column: 2; margin: 0; color: var(--muted); font-size: 10px; }
+.highlight-item p { margin: 0; color: var(--muted); font-size: 10px; }
+.highlight-copy .highlight-detail { color: #a0ada7; }
 .highlight-link { grid-column: 2; display: inline-flex; align-items: center; gap: 5px; margin-top: 4px; color: var(--teal); font-size: 9px; }
 .highlight-link:hover { text-decoration: underline; text-underline-offset: 3px; }
 
