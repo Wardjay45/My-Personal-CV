@@ -1,19 +1,27 @@
 // Replace these sample fields with verified information before publishing.
 export const portfolio = {
-  name: 'Your Name',
-  shortName: 'YN',
-  title: 'Information Technology Student',
-  eyebrow: 'INFORMATION TECHNOLOGY',
-  introduction: 'Replace this with a short, accurate introduction about your interests and what you are learning.',
+  name: 'Jeward Mencede',
+  shortName: 'JM',
+  title: '4th-year BSIT Student',
+  eyebrow: 'BSIT · 4TH YEAR',
+  introduction: 'I’m Jeward Mencede, a fourth-year Bachelor of Science in Information Technology student at Davao Del Norte State College.',
   objective: 'Add a concise career objective that reflects the opportunities you are pursuing.',
-  location: 'Location to be added',
+  location: '',
   email: '',
   github: '',
   linkedin: '',
-  profileImage: '',
-  about:
-    'Add a few sentences about your background, the work you enjoy, and the direction you want to grow. Keep this focused on details you are comfortable sharing publicly.',
-  education: [],
+  profileImage: {
+    dark: '/portrait-dark.png',
+    light: '/portrait-light.png',
+  },
+  about: 'I’m currently in my fourth year of the BSIT program at Davao Del Norte State College. I’ll add more about my background and interests here.',
+  education: [
+    {
+      school: 'Davao Del Norte State College',
+      program: 'Bachelor of Science in Information Technology',
+      period: '4th Year · Current',
+    },
+  ],
   skills: {},
   projects: [],
   achievements: [],

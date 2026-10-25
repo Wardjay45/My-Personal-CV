@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import {
   ArrowDown, ArrowRight, ArrowUpRight, Award, BriefcaseBusiness, Code2,
-  Github, GraduationCap, Linkedin, Mail, MapPin, Menu, Sparkles, X,
+  Github, GraduationCap, Linkedin, Mail, MapPin, Menu, Moon, Sparkles, Sun, X,
 } from 'lucide-react'
 import { portfolio } from './data/portfolio.js'
 
@@ -33,7 +33,7 @@ function EmptyNote({ children = 'Add verified details here before publishing.' }
   return <div className="empty-note"><span className="empty-dot" />{children}</div>
 }
 
-function Navbar() {
+function Navbar({ theme, onToggleTheme }) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   useEffect(() => {
@@ -49,12 +49,17 @@ function Navbar() {
         {navItems.map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setOpen(false)}>{label}</a>)}
         <a className="nav-contact" href="#contact" onClick={() => setOpen(false)}>Let’s talk <ArrowUpRight size={14} /></a>
       </div>
-      <button className="menu-toggle" aria-label={open ? 'Close menu' : 'Open menu'} aria-controls="primary-navigation" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
+      <div className="header-actions">
+        <button className="theme-toggle" type="button" onClick={onToggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`} title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
+          {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+        </button>
+        <button className="menu-toggle" aria-label={open ? 'Close menu' : 'Open menu'} aria-controls="primary-navigation" aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
+      </div>
     </nav>
   </header>
 }
 
-function Hero() {
+function Hero({ theme }) {
   const reduced = useReducedMotion()
   return <section className="hero section-wrap" id="home">
     <div className="hero-grid">
@@ -68,7 +73,7 @@ function Hero() {
           <a className="button button-quiet" href="#contact">Get in touch <ArrowUpRight size={16} /></a>
         </div>
         <div className="hero-meta">
-          <span><MapPin size={14} />{portfolio.location}</span>
+          {portfolio.location && <span><MapPin size={14} />{portfolio.location}</span>}
           {portfolio.github && <a href={portfolio.github} target="_blank" rel="noreferrer"><Github size={15} />GitHub</a>}
           {portfolio.linkedin && <a href={portfolio.linkedin} target="_blank" rel="noreferrer"><Linkedin size={15} />LinkedIn</a>}
         </div>
@@ -76,7 +81,7 @@ function Hero() {
       <motion.div className="portrait-stage" initial={reduced ? false : { opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: reduced ? 0 : 0.85, delay: 0.12 }}>
         <div className="portrait-orbit orbit-one" /><div className="portrait-orbit orbit-two" />
         <div className="portrait-card">
-          {portfolio.profileImage ? <img src={portfolio.profileImage} alt={`Portrait of ${portfolio.name}`} /> : <div className="portrait-placeholder"><span>{portfolio.shortName}</span><small>PROFILE PHOTO</small></div>}
+          {portfolio.profileImage?.[theme] ? <img src={portfolio.profileImage[theme]} alt={`Portrait of ${portfolio.name}`} /> : <div className="portrait-placeholder"><span>{portfolio.shortName}</span><small>PROFILE PHOTO</small></div>}
           <div className="portrait-caption"><div><span className="caption-overline">CURRENT FOCUS</span><strong>{portfolio.title}</strong></div><span className="caption-icon"><Code2 size={18} /></span></div>
         </div>
         <div className="floating-note"><span className="note-icon"><Sparkles size={17} /></span><div><small>CURIOUS BY NATURE</small><b>Always learning</b></div></div>
@@ -92,7 +97,7 @@ function About() {
     <Reveal><SectionHeading number="01" label="A LITTLE ABOUT ME" title="Thoughtful work,\nsteady growth." summary="A quick introduction to the person behind the projects." /></Reveal>
     <div className="about-grid">
       <Reveal className="about-main"><span className="large-quote">“</span><p className="about-copy">{portfolio.about}</p><div className="objective-block"><span className="mini-label">CAREER OBJECTIVE</span><p>{portfolio.objective}</p></div></Reveal>
-      <Reveal className="about-side" delay={0.12}><div className="about-card"><span className="card-icon"><GraduationCap size={20} /></span><span className="mini-label">CURRENT CHAPTER</span><h3>{portfolio.title}</h3><p>Add your current school, program, and year level to make this personal.</p></div><div className="about-card"><span className="card-icon"><Sparkles size={20} /></span><span className="mini-label">WHAT DRIVES ME</span><h3>Learning by making</h3><p>Share the technologies, problems, or ideas you’re excited to explore.</p></div></Reveal>
+      <Reveal className="about-side" delay={0.12}><div className="about-card"><span className="card-icon"><GraduationCap size={20} /></span><span className="mini-label">CURRENT CHAPTER</span><h3>{portfolio.title}</h3><p>Bachelor of Science in Information Technology · Davao Del Norte State College.</p></div><div className="about-card"><span className="card-icon"><Sparkles size={20} /></span><span className="mini-label">WHAT DRIVES ME</span><h3>Interests & goals</h3><p>More about my interests and professional goals will be added here.</p></div></Reveal>
     </div>
   </section>
 }
@@ -141,7 +146,7 @@ function Contact() {
       {hasEmail ? <a href={`mailto:${portfolio.email}`}><Mail size={17} /><span>{portfolio.email}</span><ArrowUpRight size={15} /></a> : <div className="contact-detail-placeholder" id="contact-details"><Mail size={17} /><span>Email address to be added</span></div>}
       {portfolio.github && <a href={portfolio.github} target="_blank" rel="noreferrer"><Github size={17} /><span>GitHub</span><ArrowUpRight size={15} /></a>}
       {portfolio.linkedin && <a href={portfolio.linkedin} target="_blank" rel="noreferrer"><Linkedin size={17} /><span>LinkedIn</span><ArrowUpRight size={15} /></a>}
-      <div className="contact-location"><MapPin size={16} />{portfolio.location}</div>
+      {portfolio.location && <div className="contact-location"><MapPin size={16} />{portfolio.location}</div>}
     </Reveal>
   </div></section>
 }
@@ -157,5 +162,14 @@ function Footer() {
 }
 
 export default function App() {
-  return <><Navbar /><main id="main-content"><Hero /><div className="hero-divider" /><About /><Education /><Skills /><Projects /><Highlights /><Contact /></main><Footer /></>
+  const [theme, setTheme] = useState(() => {
+    try { return window.localStorage.getItem('portfolio-theme') === 'light' ? 'light' : 'dark' }
+    catch { return 'dark' }
+  })
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0b1115' : '#f4f6f2')
+    try { window.localStorage.setItem('portfolio-theme', theme) } catch { /* Theme still works for this visit. */ }
+  }, [theme])
+  return <><Navbar theme={theme} onToggleTheme={() => setTheme((current) => current === 'dark' ? 'light' : 'dark')} /><main id="main-content"><Hero theme={theme} /><div className="hero-divider" /><About /><Education /><Skills /><Projects /><Highlights /><Contact /></main><Footer /></>
 }

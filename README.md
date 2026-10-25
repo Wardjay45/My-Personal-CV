@@ -2,7 +2,7 @@
 
 A responsive, single-page portfolio website for an Information Technology student. The design highlights a concise profile, education, skills, projects, experience, achievements, and contact information.
 
-> **Draft:** Replace the sample copy and empty profile fields in `src/data/portfolio.js` with verified information before sharing this portfolio publicly. Add a professional photo and project previews under `public/` when available.
+> **Draft:** Replace the remaining sample copy and empty profile fields in `src/data/portfolio.js` before sharing this portfolio publicly. The supplied dark-mode and light-mode portraits are stored in `public/`; add project previews there when available.
 
 ## Technologies
 
@@ -45,7 +45,8 @@ Update `src/data/portfolio.js` with facts and working URLs you have verified. Ad
 
 - GitHub repository: **Not connected yet**
 - Live Vercel website: **Not deployed yet**
-- Screenshots: **To be added after profile content and assets are supplied**
+- Student name: Jeward Mencede
+- Screenshots: **To be added with the project details**
 
 ## Before publishing
 
